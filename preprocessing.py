@@ -49,7 +49,7 @@ def display(image, title='Image'):
     cv.imshow(title, image)
     cv.waitKey(0)
     cv.destroyAllWindows()    
-x=preeprocess_image(image_path)
+x=preprocess_image(image_path)
 display(x)
 result=pyt.image_to_string(x)
 print(result)
