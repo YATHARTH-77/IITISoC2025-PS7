@@ -11,6 +11,7 @@ import cv2 as cv
 import numpy as np
 import pytesseract as pyt
 import os
+image_path='page_01.jpg'
 def preprocess_image(image_path):
 
     # Load the image
@@ -48,4 +49,7 @@ def display(image, title='Image'):
     cv.imshow(title, image)
     cv.waitKey(0)
     cv.destroyAllWindows()    
-
+x=preeprocess_image(image_path)
+display(x)
+result=pyt.image_to_string(x)
+print(result)
