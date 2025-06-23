@@ -49,4 +49,3 @@ def display(image, title='Image'):
     cv.waitKey(0)
     cv.destroyAllWindows()    
 
-process_folder('Datasets\Chinese\chinese dataset\PO0202-1-中文OCR数据样例\image\\nature\\advertising bord','Processed datasets\Chinese')
