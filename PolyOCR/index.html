@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="interface1">
+        <div id="logo">
+            <img src="PolyOCR.jpg" alt="PolyOCR" height="100%">
+        </div>
+        <div id="uplDiv">
+            <img src="Upload.jpg" alt="Upload Image" height="" id="upllogo">
+            <h2>Upload Image For OCR Processing</h2>
+            <br>
+            <p>Drag And Drop Image Here OR Click "Choose File" To Browse</p>
+            <P>File Type: JPG, PNG (Only one)</P>
+            <img id="uplBtn" src="UplBtn.jpg" height="100%">
+        </div>
+        <div id="langdiv">
+            <div id="langhead">
+                <img src="langsymbol.png" alt="">
+                <h3>LANGUAGE SETTING</h3>
+            </div>
+            <br>
+            <p>Select Language To Detect</p>
+            <div id="langopt">
+                <div id="option">
+                    <label for="AutoDetect">
+                        <input type="radio" name="lang" id="AutoDetect" value="AutoDetect">
+                        AutoDetect
+                    </label>
+                </div>
+                <div id="option">
+                    <label for="English">
+                        <input type="radio" name="lang" id="English" value="English">
+                        English
+                    </label>
+                </div>
+                <div id="option">
+                    <label for="Hindi">
+                        <input type="radio" name="lang" id="Hindi" value="Hindi">
+                        Hindi
+                    </label>
+                </div>
+                <div id="option">
+                    <label for="Chinese">
+                        <input type="radio" name="lang" id="Chinese" value="Chinese">
+                        Chinese
+                    </label>
+                </div>
+                <div id="option">
+                    <label for="French">
+                        <input type="radio" name="lang" id="French" value="French">
+                        French
+                    </label>
+                </div>
+                <div id="option">
+                    <label for="Spainish">
+                        <input type="radio" name="lang" id="Spainish" value="Spainish">
+                        Spainish
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div id="taskdiv">
+            <div id="taskhead">
+                <img src="Process.png" alt="">
+                <h3> Processing Options</h3>
+            </div>
+            <p>Choose processings</p>
+            <div id="processOpts">
+                <label for="Noice">
+                    <input type="checkbox" id="Noice" name="Task" value="Noice" />
+                    <div class="processOpt">
+                        <tick></tick>Remove Noise
+                    </div>
+                </label>
+                <label for="JSON">
+                    <input type="checkbox" id="JSON" name="Task" value="JSON" />
+                    <div class="processOpt">
+                        <tick></tick>Export Json File
+                    </div>
+                </label>
+            </div>
+        </div>
+        <button id="submitBtn">Process Image</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
