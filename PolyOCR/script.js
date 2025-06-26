@@ -1,7 +1,8 @@
 let uplDiv = document.getElementById("uplDiv");
 let uplBtn = document.getElementById('uplBtn');
 let submitBtn = document.getElementById('submitBtn');
-let uplLogo = document.getElementById('upllogo');
+let subImg = document.getElementById('subImg');
+let subImgDiv = document.getElementById('subImgDiv')
 let finalFile;
 let bool=false;
 
@@ -9,17 +10,8 @@ const filefunction = (file) => {
     if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
         const reader = new FileReader();
         reader.onload = function(event) {
-            uplLogo.src = event.target.result;
-            uplLogo.style.display = 'inline-block';
-            const remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize);
-            const maxWidth = uplDiv.offsetWidth - (3 * remInPx);
-            if ((uplLogo.style.naturalWidth)*250/(uplLogo.style.naturalHeight) > maxWidth) {
-                uplLogo.style.width = maxWidth + 'px';
-                uplLogo.style.height = 'auto';
-            } else {
-                uplLogo.style.width = 'auto';
-                uplLogo.style.height = '15rem';
-            }
+            subImg.src = event.target.result;
+            subImgDiv.style.display = 'block';
             finalFile = file;
             bool=true;
             console.log("Accepted file:", file);
@@ -78,7 +70,7 @@ submitBtn.onclick = () => {
         }
     });
     if ((bool)&&(selectedLang)) {
-        // Proceed with form submission
+        
     } else {
         alert("Please upload a valid image file and select a language before submitting.");
     }

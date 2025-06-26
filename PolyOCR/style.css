@@ -13,6 +13,7 @@ body{
 }
 
 #interface1{
+    overflow: hidden;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -21,12 +22,17 @@ body{
 }
 
 #logo{
-    height: 6rem;
+    width: 90%;
     padding:0;
     margin: 1rem;
+    img{
+        max-width: 100%;
+        max-height: 10vh;
+    }
 }
 
-#uplDiv, #langdiv, #taskdiv{
+#uplDiv, #langdiv, #taskdiv, #subImgDiv{
+    overflow: hidden;
     background-color: rgb(200, 200, 200);
     width:90%;
     margin:1rem;
@@ -37,13 +43,15 @@ body{
 #uplDiv{
     font-size: 1.5rem;
     #upllogo {
-    height: 3.5rem;
+        max-width: 100%;
+        max-height: 3.5rem;
     }
     #uplBtn{
     margin-top: 1rem;
     border: none;
     border-radius: 1rem;
-    height: 2rem;
+    max-width: 100%;
+    max-height: 2rem;
     cursor: pointer;
     }
     &.dragover {
@@ -51,6 +59,24 @@ body{
         border: 2px dashed #0288d1;
         box-shadow: 0 0 10px #0288d1;
         transition: background-color 0.3s, border 0.3s, box-shadow 0.3s;
+    }
+}
+
+#subImgDiv{
+    display: none;
+    max-height: 60vh;
+    width: 90%;
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    h3{
+        padding-bottom: 1rem;
+    }
+    #subImg{
+        max-height: 100%;
+        max-width: 100%;
+        border: 2px solid #333;
+        border-radius: 0.5rem;
     }
 }
 
@@ -214,7 +240,6 @@ body{
         }
     }
 }        
-
 
 #submitBtn{
     margin-top: 1.5rem;
