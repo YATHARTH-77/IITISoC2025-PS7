@@ -14,7 +14,7 @@ def preprocess_image(image_path):
     sharpen_amount = 1.7 if scale < 600 else 2.5
     sharpen_subtract = 0.7 if scale < 600 else 1.5
     morph_kernel_size = (1, 1)
-    bet= 200 if scale < 600 else 235
+    bet= 200 if scale < 600 else 215
 
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
@@ -34,10 +34,10 @@ def preprocess_image(image_path):
 
 
     if scale>600 : 
-        processed = cv.adaptiveThreshold(morph, 215, cv.ADAPTIVE_THRESH_MEAN_C,
+        processed = cv.adaptiveThreshold(morph, 185, cv.ADAPTIVE_THRESH_MEAN_C,
                                      cv.THRESH_BINARY, 23, 27)
     else:
-        processed = cv.adaptiveThreshold(morph, 205, cv.ADAPTIVE_THRESH_GAUSSIAN_C,
+        processed = cv.adaptiveThreshold(morph, 205, cv.ADAPTIVE_THRESH_MEAN_C,
                                      cv.THRESH_BINARY, 7, 7)
     
     return processed
