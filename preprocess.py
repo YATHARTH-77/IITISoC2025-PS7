@@ -15,7 +15,7 @@ def preprocess_image(image_path):
     sharpen_amount = 1.7 if scale < 600 else 2.5
     sharpen_subtract = 0.7 if scale < 600 else 1.5
     morph_kernel_size = (1, 1)
-    bet= 200 if scale < 600 else 220
+    bet= 200 if scale < 600 else 235
 
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
@@ -28,14 +28,14 @@ def preprocess_image(image_path):
     # 4. Sharpen text edges
     sharpened = cv.addWeighted(gray, sharpen_amount, norm, -sharpen_subtract, 0)
 
-    #noise and dots cleaning
+    
     kernel = np.ones(morph_kernel_size, np.uint8)
     morph = cv.morphologyEx(sharpened, cv.MORPH_OPEN, kernel, iterations=1)
     morph = cv.morphologyEx(morph, cv.MORPH_CLOSE, kernel, iterations=1)
 
-     #adapive threshholding
+
     if scale>600 : 
-        processed = cv.adaptiveThreshold(morph, 235, cv.ADAPTIVE_THRESH_MEAN_C,
+        processed = cv.adaptiveThreshold(morph, 215, cv.ADAPTIVE_THRESH_MEAN_C,
                                      cv.THRESH_BINARY, 23, 27)
     else:
         processed = cv.adaptiveThreshold(morph, 205, cv.ADAPTIVE_THRESH_GAUSSIAN_C,
@@ -43,8 +43,8 @@ def preprocess_image(image_path):
     
     return processed
 def display_comparison(original, processed):
-    resized_orig = cv.resize(original, (600, 600))
-    resized_proc = cv.resize(processed, (600, 600))
+    resized_orig = cv.resize(original, (750, 750))
+    resized_proc = cv.resize(processed, (750, 750))
     combined = np.hstack((resized_orig, cv.cvtColor(resized_proc, cv.COLOR_GRAY2BGR)))
     cv.imshow("Original (Left) | Processed (Right)", combined)
     cv.waitKey(0)
@@ -62,7 +62,9 @@ def process_folder(input_dir, output_dir):
                 cv.imwrite(out_path, processed)
             except Exception as e:
                 print(f"Error processing {filename}: {str(e)}")
-
+def save_processed_image(image_path, output_path):
+    processed = preprocess_image(image_path)
+    cv.imwrite(output_path, processed)
 image_path = 'D:\Coding\WhatsApp Image 2025-06-27 at 11.56.42_ae6495e8.jpg'
 processed = preprocess_image(image_path)
 im = cv.imread(image_path)
