@@ -1,6 +1,5 @@
 import cv2 as cv
 import numpy as np
-import pytesseract as pyt
 import os
 def preprocess_image(image_path):
     img = cv.imread(image_path)
@@ -69,4 +68,4 @@ image_path = 'D:\Coding\WhatsApp Image 2025-06-27 at 11.56.42_ae6495e8.jpg'
 processed = preprocess_image(image_path)
 im = cv.imread(image_path)
 display_comparison(im, processed)
-print(pyt.image_to_string(processed, lang='eng'))
+
