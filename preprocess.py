@@ -65,7 +65,11 @@ def save_processed_image(image_path, output_path):
     processed = preprocess_image(image_path)
     cv.imwrite(output_path, processed)
 image_path = 'D:\Coding\WhatsApp Image 2025-06-27 at 11.56.42_ae6495e8.jpg'
+output_path='D:\Coding\IITISoC2025-PS9\preprocessed dataset'
 processed = preprocess_image(image_path)
 im = cv.imread(image_path)
 display_comparison(im, processed)
+#saving the image by specifying image path and output path above 
+save_preprocessed_image(image_path,output_path)
+
 
