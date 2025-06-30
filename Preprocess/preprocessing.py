@@ -38,7 +38,7 @@ def process_folder(input_dir, output_dir):
             path = os.path.join(input_dir, filename)
             try:
                 processed = preprocess_image(path)
-                out_path = os.path.join(output_dir, filename)
+                out_path = os.path.join(output_dir, f"pre_{filename}")
                 cv.imwrite(out_path, processed)
             except Exception as e:
                 print(f"Error processing {filename}: {str(e)}")
@@ -52,12 +52,11 @@ def display_comparison(original, processed):
     cv.destroyAllWindows()
 
 # Example usage
-image_path = "page_01.jpg"
+image_path = "Preprocess/input/WhatsApp Image 2025-06-30 at 15.54.30_38c5591d.jpg"
 processed = preprocess_image(image_path)
 im=cv.imread(image_path)
 display_comparison(im,processed)
-process_folder('D:\Coding\IITISoC2025-PS9\Preprocess\presentation dataset','D:\Coding\IITISoC2025-PS9\Preprocess\preprocessed pres dataset')
+process_folder('Preprocess\input','Preprocess\preprocessed output')
 filename = os.path.basename(image_path)
-output_path=f'D:\Coding\IITISoC2025-PS9\Preprocess\preprocessed pres dataset\{filename}'
-#saving the image by specifying image path and output path above 
-cv.imwrite(output_path,processed)
+output_path = os.path.join('preprocessed output', f"pre_{filename}")
+cv.imwrite(output_path, processed)
