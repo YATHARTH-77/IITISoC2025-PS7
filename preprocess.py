@@ -64,8 +64,8 @@ def process_folder(input_dir, output_dir):
 def save_processed_image(image_path, output_path):
     processed = preprocess_image(image_path)
     cv.imwrite(output_path, processed)
-image_path = 'D:\Coding\WhatsApp Image 2025-06-27 at 11.56.42_ae6495e8.jpg'
-output_path='D:\Coding\IITISoC2025-PS9\preprocessed dataset'
+image_path = ''
+output_path=''
 processed = preprocess_image(image_path)
 im = cv.imread(image_path)
 display_comparison(im, processed)
