@@ -1,3 +1,4 @@
+
 import cv2 as cv
 import numpy as np
 import os
@@ -61,15 +62,11 @@ def process_folder(input_dir, output_dir):
                 cv.imwrite(out_path, processed)
             except Exception as e:
                 print(f"Error processing {filename}: {str(e)}")
-def save_processed_image(image_path, output_path):
-    processed = preprocess_image(image_path)
-    cv.imwrite(output_path, processed)
 image_path = ''
 processed = preprocess_image(image_path)
 im = cv.imread(image_path)
 display_comparison(im, processed)
-output_path='preprocessed dataset'
+#fill output folder before \image path
+output_path=f'\{image_path}'
 #saving the image by specifying image path and output path above 
-save_processed_image(image_path,output_path)
-
-
+cv.imwrite(output_path,processed)
