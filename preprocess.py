@@ -67,6 +67,8 @@ processed = preprocess_image(image_path)
 im = cv.imread(image_path)
 display_comparison(im, processed)
 #fill output folder before \image path
-output_path=f'\{image_path}'
+filename = os.path.basename(image_path)
+
+output_path=f'\{filename}'
 #saving the image by specifying image path and output path above 
 cv.imwrite(output_path,processed)
