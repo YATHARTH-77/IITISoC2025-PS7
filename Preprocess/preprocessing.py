@@ -57,3 +57,7 @@ processed = preprocess_image(image_path)
 im=cv.imread(image_path)
 display_comparison(im,processed)
 process_folder('D:\Coding\IITISoC2025-PS9\Preprocess\presentation dataset','D:\Coding\IITISoC2025-PS9\Preprocess\preprocessed pres dataset')
+filename = os.path.basename(image_path)
+output_path=f'D:\Coding\IITISoC2025-PS9\Preprocess\preprocessed pres dataset\{filename}'
+#saving the image by specifying image path and output path above 
+cv.imwrite(output_path,processed)
