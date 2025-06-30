@@ -9,6 +9,7 @@ const processBtn = document.getElementById('process-btn');
 const processText = document.getElementById('process-text');
 const processWarning = document.getElementById('process-warning');
 const chooseFileBtn = document.querySelector('.choose-file-btn');
+const loader = document.getElementById('loader');
 
 // State
 let selectedFile = null;
@@ -67,6 +68,7 @@ function updateProcessButton() {
     
     if (canProcess) {
         processWarning.classList.add('hidden');
+        loader.style.display = ''; // Show loader when processing
     } else if (!isProcessing) {
         processWarning.classList.remove('hidden');
     }
@@ -82,13 +84,19 @@ async function processImage() {
     isProcessing = true;
     processBtn.classList.add('processing');
     processBtn.disabled = true;
-    processText.textContent = 'Processing...';
+    //Hide SVG and Text, Show loader
     processWarning.classList.add('hidden');
-    
+    loader.style.display = 'inline-block'; // Show loader when processing
+
     // Simulate processing delay
     setTimeout(() => {
         isProcessing = false;
         processBtn.classList.remove('processing');
+        processBtn.disabled = false;
+        // Restore SVG and text, hide loader
+        processBtn.querySelector('svg').style.display = '';
+        processText.style.display = '';
+        loader.style.display = 'none';
         processText.textContent = 'Process Image';
         
         alert(`Processing ${selectedFile.name} with ${selectedLanguage} language detection...`);
@@ -99,11 +107,11 @@ async function processImage() {
 
 // Event Listeners
 
-// Choose file button
-chooseFileBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    fileInput.click();
-});
+// // Choose file button
+// chooseFileBtn.addEventListener('click', (e) => {
+//     e.stopPropagation();
+//     fileInput.click();
+// });
 
 // Upload container click
 uploadSection.addEventListener('click', () => {
