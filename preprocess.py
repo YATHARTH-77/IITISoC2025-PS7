@@ -64,11 +64,11 @@ def process_folder(input_dir, output_dir):
 def save_processed_image(image_path, output_path):
     processed = preprocess_image(image_path)
     cv.imwrite(output_path, processed)
-image_path = input('please enter image path: ')
+image_path = ''
 processed = preprocess_image(image_path)
 im = cv.imread(image_path)
 display_comparison(im, processed)
-output_path=input('please enter path you want to save preprocessed image: ')
+output_path=''
 #saving the image by specifying image path and output path above 
 save_preprocessed_image(image_path,output_path)
 
