@@ -68,7 +68,7 @@ image_path = ''
 processed = preprocess_image(image_path)
 im = cv.imread(image_path)
 display_comparison(im, processed)
-output_path=''
+output_path='preprocessed dataset'
 #saving the image by specifying image path and output path above 
 save_preprocessed_image(image_path,output_path)
 
