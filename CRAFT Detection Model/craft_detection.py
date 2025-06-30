@@ -119,6 +119,15 @@ def detect_text(image_path, output_dir, trained_model='weights/craft_mlt_25k.pth
     return scaled_boxes, scaled_polys
 
 if __name__ == "__main__":
-    image_path = 'test_images/test.jpg'
+    image_dir = 'test_images'
     output_dir = 'result'
-    detect_text(image_path, output_dir, cuda=False)
+    trained_model = 'weights/craft_mlt_25k.pth'
+    cuda = False
+    poly = False
+
+    # Iterate over all images in the test_images folder
+    for filename in os.listdir(image_dir):
+        if filename.lower().endswith(('.png', '.jpg', '.jpeg')):  # Filter for image files
+            image_path = os.path.join(image_dir, filename)
+            print(f"Processing {filename}...")
+            detect_text(image_path, output_dir, trained_model, cuda=cuda, poly=poly)
